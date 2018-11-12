@@ -6,6 +6,7 @@ class TasksController < ApplicationController
   end
   
   def show
+    @task = Task.find(parama[:id])
   end
 
   def new
@@ -25,6 +26,7 @@ class TasksController < ApplicationController
   end
 
   def edit
+    @task = Task.find(parama[:id])
   end
 
   def update
