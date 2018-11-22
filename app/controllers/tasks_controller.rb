@@ -3,7 +3,7 @@ class TasksController < ApplicationController
   before_action :correct_user, only: [:destroy]
   
   def index
-    @tasks = Task.all.page(params[:page]).per(5)
+    @tasks = current_user.tasks.order('created_at DESC').page(params[:page])
   end
   
   def show
@@ -46,7 +46,7 @@ class TasksController < ApplicationController
     @task.destroy
     
     flash[:success] = 'タスクは正常に削除されました'
-    redirect_back(fallback_location: root_path)
+    redirect_to root_url
   end
   
   private

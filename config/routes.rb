@@ -5,6 +5,7 @@ root to: 'toppages#index'
   get 'sessions/destroy'
   
   get 'login', to: 'sessions#new'
+  get 'login', to: 'sessions#show'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
   
